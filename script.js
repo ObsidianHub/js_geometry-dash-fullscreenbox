@@ -10,4 +10,22 @@ class Rectangle {
     this.h = h; // height
     this.vx = this.vy = 0; // velocity x and y
   }
+
+  /* We can do calculations when we are setting the current position because the current position is new. Avoiding rounding errors isn't as important here. It is important when saving the current position to the old position, however, because the values must not change for the sake of accuracy. */
+  setBottom(b) {
+    this.b = b;
+    this.t = b - this.h;
+  }
+  setLeft(l) {
+    this.l = l;
+    this.r = l + this.w;
+  }
+  setRight(r) {
+    this.r = r;
+    this.l = r - this.w;
+  }
+  setTop(t) {
+    this.t = t;
+    this.b = t + this.h;
+  }
 }
