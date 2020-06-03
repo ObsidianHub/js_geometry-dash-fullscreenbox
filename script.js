@@ -89,4 +89,14 @@ class Player extends Rectangle {
 
     this.jumping = true;
   }
+
+  collideRectangle(rectangle) {
+    if (
+      this.b < rectangle.t ||
+      this.t > rectangle.b ||
+      this.l > rectangle.r ||
+      this.r < rectangle.l
+    )
+      return;
+  }
 }
