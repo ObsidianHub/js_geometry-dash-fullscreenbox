@@ -115,4 +115,23 @@ class Player extends Rectangle {
       this.vx = rectangle.vx;
     }
   }
+
+  update(g, f) {
+    // gravity and friction
+
+    this.vy += g; // you can make updates to velocity before or after the position update
+
+    this.vx *= f; // I choose before so there isn't one frame of inactivity on the first cycle
+    this.vy *= f;
+
+    this.ob = this.b; // update the old positions to the current positions
+    this.ol = this.l;
+    this.or = this.r;
+    this.ot = this.t;
+
+    this.l += this.vx; // update the current positions to the new positions
+    this.t += this.vy;
+    this.r = this.l + this.w;
+    this.b = this.t + this.h;
+  }
 }
