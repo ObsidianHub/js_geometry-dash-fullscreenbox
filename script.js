@@ -39,4 +39,16 @@ class Platform extends Rectangle {
 
     this.frozen = false;
   }
+
+  collideBoundaries(l, r, t, b) {
+    if (this.l < l) {
+      this.d = Math.atan2(Math.sin(this.d), Math.cos(this.d) * -1);
+      this.vx *= -1;
+      this.setLeft(l);
+    } else if (this.r > r) {
+      this.d = Math.atan2(Math.sin(this.d), Math.cos(this.d) * -1);
+      this.vx *= -1;
+      this.setRight(r);
+    }
+  }
 }
