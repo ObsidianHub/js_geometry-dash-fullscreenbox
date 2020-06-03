@@ -166,3 +166,23 @@ function loop(time_stamp) {
 
   window.requestAnimationFrame(loop);
 }
+
+function render() {
+  context.fillStyle = "#f0d8c0";
+  context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+
+  context.fillStyle = "#202830";
+  context.fillRect(0, getFloor(), context.canvas.width, 8);
+
+  context.fillStyle = "#0080f0";
+  context.fillRect(player.l, player.t, player.w, player.h);
+
+  context.font = "20px Arial";
+
+  for (let index = platforms.length - 1; index > -1; --index) {
+    let platform = platforms[index];
+
+    context.fillStyle = "#f08000";
+    context.fillRect(platform.l, platform.t, platform.w, platform.h);
+  }
+}
