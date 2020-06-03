@@ -61,4 +61,24 @@ class Platform extends Rectangle {
       this.setBottom(b);
     }
   }
+
+  update() {
+    if (!this.frozen) {
+      this.vx = Math.cos(this.d); // move in direction
+      this.vy = Math.sin(this.d);
+
+      this.rotation += 0.05;
+      this.vy += Math.sin(this.rotation); // sine wave motion
+    }
+
+    this.ob = this.b; // update the old positions to the current positions
+    this.ol = this.l;
+    this.or = this.r;
+    this.ot = this.t;
+
+    this.l += this.vx; // update the current positions to the new positions
+    this.t += this.vy;
+    this.r = this.l + this.w;
+    this.b = this.t + this.h;
+  }
 }
