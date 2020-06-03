@@ -29,3 +29,14 @@ class Rectangle {
     this.b = t + this.h;
   }
 }
+
+class Platform extends Rectangle {
+  constructor(l, t, w, h) {
+    super(l, t, w, h);
+
+    this.d = Math.random() * Math.PI * 2; // initial movement direction
+    this.rotation = Math.random() * Math.PI * 2; // rotation for sine wave movement
+
+    this.frozen = false;
+  }
+}
