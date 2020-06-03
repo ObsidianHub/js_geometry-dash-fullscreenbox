@@ -149,3 +149,13 @@ var pointer = { x: player.l, down: false };
 function getFloor() {
   return context.canvas.height * 0.9;
 }
+
+function collideFloor(player) {
+  var floor = getFloor();
+
+  if (player.b > floor) {
+    player.setBottom(floor);
+    player.vy = 0;
+    player.jumping = false;
+  }
+}
