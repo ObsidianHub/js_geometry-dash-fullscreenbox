@@ -159,3 +159,10 @@ function collideFloor(player) {
     player.jumping = false;
   }
 }
+
+function loop(time_stamp) {
+  update();
+  render();
+
+  window.requestAnimationFrame(loop);
+}
