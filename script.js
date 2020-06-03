@@ -50,5 +50,15 @@ class Platform extends Rectangle {
       this.vx *= -1;
       this.setRight(r);
     }
+
+    if (this.t <= t) {
+      this.d = Math.atan2(Math.sin(this.d) * -1, Math.cos(this.d));
+      this.vy *= -1;
+      this.setTop(t);
+    } else if (this.b > b) {
+      this.d = Math.atan2(Math.sin(this.d) * -1, Math.cos(this.d));
+      this.vy *= -1;
+      this.setBottom(b);
+    }
   }
 }
