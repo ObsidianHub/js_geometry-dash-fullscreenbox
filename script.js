@@ -98,5 +98,21 @@ class Player extends Rectangle {
       this.r < rectangle.l
     )
       return;
+
+    /* You can only collide with one side at a time, so "else if" is just fine. You don't need to separate the checks for x and y. Only one check can be true, so only one needs to be done. Once it's found, the other's don't need to be done. */
+    if (this.b >= rectangle.t && this.ob < rectangle.ot) {
+      this.setBottom(rectangle.t - 0.1);
+      this.vy = rectangle.vy; // the platform moves the player with it after collision...
+      this.jumping = false;
+    } else if (this.t <= rectangle.b && this.ot > rectangle.ob) {
+      this.setTop(rectangle.b + 0.1);
+      this.vy = rectangle.vy; // ... regardless of what side the player collides with
+    } else if (this.r >= rectangle.l && this.or < rectangle.ol) {
+      this.setRight(rectangle.l - 0.1);
+      this.vx = rectangle.vx;
+    } else if (this.l <= rectangle.r && this.ol > rectangle.or) {
+      this.setLeft(rectangle.r + 0.1);
+      this.vx = rectangle.vx;
+    }
   }
 }
