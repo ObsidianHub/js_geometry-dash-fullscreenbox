@@ -145,3 +145,7 @@ var player = new Player(context.canvas.width * 0.25, 0, 32, 32, "#0080f0");
 var platforms = [];
 
 var pointer = { x: player.l, down: false };
+
+function getFloor() {
+  return context.canvas.height * 0.9;
+}
