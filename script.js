@@ -82,3 +82,11 @@ class Platform extends Rectangle {
     this.b = this.t + this.h;
   }
 }
+
+class Player extends Rectangle {
+  constructor(l, t, w, h) {
+    super(l, t, w, h);
+
+    this.jumping = true;
+  }
+}
