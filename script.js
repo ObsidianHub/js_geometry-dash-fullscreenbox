@@ -186,3 +186,17 @@ function render() {
     context.fillRect(platform.l, platform.t, platform.w, platform.h);
   }
 }
+
+function update() {
+  player.vx += (pointer.x - player.l - player.w * 0.5) * 0.01;
+
+  if (pointer.down && !player.jumping) {
+    player.jumping = true;
+    player.vy -= player.h + 1;
+    pointer.down = false;
+  }
+
+  player.update(gravity, friction);
+
+  collideFloor(player);
+}
