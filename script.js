@@ -258,3 +258,10 @@ resize();
 ["touchend", "touchstart"].map((type) =>
   window.addEventListener(type, touchEndStart)
 );
+
+window.addEventListener("mousemove", mouseMove);
+window.addEventListener("touchmove", touchMove);
+window.addEventListener("resize", resize);
+window.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
