@@ -242,3 +242,8 @@ function touchMove(event) {
     event.targetTouches[0].clientX -
     context.canvas.getBoundingClientRect().left;
 }
+
+function resize(event) {
+  context.canvas.height = document.documentElement.clientHeight - 32;
+  context.canvas.width = document.documentElement.clientWidth - 32;
+}
