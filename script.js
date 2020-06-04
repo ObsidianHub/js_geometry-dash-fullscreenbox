@@ -265,3 +265,17 @@ window.addEventListener("resize", resize);
 window.addEventListener("contextmenu", (event) => {
   event.preventDefault();
 });
+
+["click", "touchstart"].map((type) =>
+  document.querySelector("a").addEventListener(type, (event) => {
+    event.preventDefault();
+
+    for (let index = platforms.length - 1; index > -1; --index) {
+      let platform = platforms[index];
+
+      platform.frozen = !platform.frozen;
+
+      if (platform.frozen) platform.vx = platform.vy = 0;
+    }
+  })
+);
