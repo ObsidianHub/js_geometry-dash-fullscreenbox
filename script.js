@@ -279,3 +279,28 @@ window.addEventListener("contextmenu", (event) => {
     }
   })
 );
+
+(() => {
+  // change scope to keep these variables out of the global scope
+
+  var w = context.canvas.width;
+  var h = context.canvas.height;
+
+  var columns = Math.floor(w / 128);
+  var rows = Math.floor(h / 128);
+
+  for (let column = columns; column > 0; column--) {
+    for (let row = rows; row > 0; row--) {
+      platforms.push(
+        new Platform(
+          column * 128 - 64,
+          row * 128 - 64,
+          Math.random() * (w / columns),
+          Math.random() * (h / rows) * 0.5 + 1
+        )
+      );
+    }
+  }
+})();
+
+loop();
