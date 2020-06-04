@@ -217,3 +217,9 @@ function mouseDownUp(event) {
 
   pointer.down = event.type == "mousedown" ? true : false;
 }
+
+function mouseMove(event) {
+  event.preventDefault();
+
+  pointer.x = event.clientX - context.canvas.getBoundingClientRect().left;
+}
