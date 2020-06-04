@@ -223,3 +223,14 @@ function mouseMove(event) {
 
   pointer.x = event.clientX - context.canvas.getBoundingClientRect().left;
 }
+
+function touchEndStart(event) {
+  event.preventDefault();
+
+  pointer.down = event.type == "touchstart" ? true : false;
+
+  if (pointer.down)
+    pointer.x =
+      event.targetTouches[0].clientX -
+      context.canvas.getBoundingClientRect().left;
+}
