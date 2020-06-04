@@ -247,3 +247,14 @@ function resize(event) {
   context.canvas.height = document.documentElement.clientHeight - 32;
   context.canvas.width = document.documentElement.clientWidth - 32;
 }
+
+//// INITIALIZE ////
+resize();
+
+// consolidate event listeners that use the same event handler (probably overkill)
+["mousedown", "mouseup"].map((type) =>
+  window.addEventListener(type, mouseDownUp)
+);
+["touchend", "touchstart"].map((type) =>
+  window.addEventListener(type, touchEndStart)
+);
