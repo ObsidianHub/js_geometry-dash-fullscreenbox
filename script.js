@@ -199,4 +199,14 @@ function update() {
   player.update(gravity, friction);
 
   collideFloor(player);
+
+  for (let index = platforms.length - 1; index > -1; --index) {
+    let platform = platforms[index];
+
+    platform.update();
+
+    platform.collideBoundaries(0, context.canvas.width, 0, getFloor());
+
+    player.collideRectangle(platform);
+  }
 }
