@@ -234,3 +234,11 @@ function touchEndStart(event) {
       event.targetTouches[0].clientX -
       context.canvas.getBoundingClientRect().left;
 }
+
+function touchMove(event) {
+  event.preventDefault();
+
+  pointer.x =
+    event.targetTouches[0].clientX -
+    context.canvas.getBoundingClientRect().left;
+}
