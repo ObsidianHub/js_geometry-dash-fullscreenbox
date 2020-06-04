@@ -210,3 +210,10 @@ function update() {
     player.collideRectangle(platform);
   }
 }
+
+//// EVENT LISTENERS ////
+function mouseDownUp(event) {
+  event.preventDefault();
+
+  pointer.down = event.type == "mousedown" ? true : false;
+}
